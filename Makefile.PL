@@ -25,11 +25,11 @@ my %WriteMakefileArgs = (
   "NAME" => "Math::EllipticCurve::Prime",
   "PREREQ_PM" => {
     "List::Util" => 0,
-    "Math::BigInt" => 0,
+    "Math::BigInt" => "1.78",
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.001",
+  "VERSION" => "0.002",
   "test" => {
     "TESTS" => "t/*.t"
   }

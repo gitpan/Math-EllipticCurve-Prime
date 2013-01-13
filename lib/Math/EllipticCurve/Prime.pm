@@ -4,15 +4,39 @@ use warnings;
 
 package Math::EllipticCurve::Prime;
 {
-  $Math::EllipticCurve::Prime::VERSION = '0.001';
+  $Math::EllipticCurve::Prime::VERSION = '0.002';
 }
 # ABSTRACT: elliptic curve operations over prime fields
 
-use Math::BigInt try => 'GMP';
+use Math::BigInt 1.78 try => 'GMP';
 use Math::EllipticCurve::Prime::Point;
 
 
 our %predefined = (
+	secp112r1 => {
+		p => "db7c2abf62e35e668076bead208b",
+		a => "db7c2abf62e35e668076bead2088",
+		b => "659ef8ba043916eede8911702b22",
+		g => "0409487239995a5ee76b55f9c2f098a89ce5af8724c0a23e0e0ff77500",
+		n => "db7c2abf62e35e7628dfac6561c5",
+		h => "01",
+	},
+	secp160r1 => {
+		p => "ffffffffffffffffffffffffffffffff7fffffff",
+		a => "ffffffffffffffffffffffffffffffff7ffffffc",
+		b => "1c97befc54bd7a8b65acf89f81d4d4adc565fa45",
+		g => "044a96b5688ef573284664698968c38bb913cbfc8223a628553168947d59dcc912042351377ac5fb32",
+		n => "0100000000000000000001f4c8f927aed3ca752257",
+		h => "01",
+	},
+	secp160r2 => {
+		p => "fffffffffffffffffffffffffffffffeffffac73",
+		a => "fffffffffffffffffffffffffffffffeffffac70",
+		b => "b4e134d3fb59eb8bab57274904664d5af50388ba",
+		g => "0452dcb034293a117e1f4ff11b30f7199d3144ce6dfeaffef2e331f296e071fa0df9982cfea7d43f2e",
+		n => "0100000000000000000000351ee786a818f3a1a16b",
+		h => "01",
+	},
 	secp192k1 => {
 		p => "fffffffffffffffffffffffffffffffffffffffeffffee37",
 		a => "00",
@@ -168,16 +192,16 @@ Math::EllipticCurve::Prime - elliptic curve operations over prime fields
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
-use Math::EllipticCurve::Prime;
+	use Math::EllipticCurve::Prime;
 
-my $curve = Math::EllipticCurve::Prime->from_name('secp256r1');
-my $point = $curve->g; # Base point of the curve.
-$point->bdbl; # In-place operation.
-print "(" . $point->x . ", " . $point->y . ")\n";
+	my $curve = Math::EllipticCurve::Prime->from_name('secp256r1');
+	my $point = $curve->g; # Base point of the curve.
+	$point->bdbl; # In-place operation.
+	print "(" . $point->x . ", " . $point->y . ")\n";
 
 =head1 DESCRIPTION
 
@@ -243,7 +267,7 @@ brian m. carlson <sandals@crustytoothpaste.net>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by brian m. carlson.
+This software is copyright (c) 2013 by brian m. carlson.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -17,8 +17,8 @@ meta-spec:
 name: Math-EllipticCurve-Prime
 requires:
   List::Util: 0
-  Math::BigInt: 0
+  Math::BigInt: 1.78
   perl: 5.006002
   strict: 0
   warnings: 0
-version: 0.001
+version: 0.002
