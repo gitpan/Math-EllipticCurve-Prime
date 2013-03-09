@@ -4,11 +4,11 @@ use warnings;
 
 package Math::EllipticCurve::Prime;
 {
-  $Math::EllipticCurve::Prime::VERSION = '0.002';
+  $Math::EllipticCurve::Prime::VERSION = '0.003';
 }
 # ABSTRACT: elliptic curve operations over prime fields
 
-use Math::BigInt 1.78 try => 'GMP';
+use Math::BigInt 1.78 try => 'GMP,FastCalc';
 use Math::EllipticCurve::Prime::Point;
 
 
@@ -192,7 +192,7 @@ Math::EllipticCurve::Prime - elliptic curve operations over prime fields
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
@@ -260,6 +260,13 @@ Returns a Math::BigInt object representing n, the order of g.
 =head2 h
 
 Returns a Math::BigInt object representing h, the cofactor.
+
+=head1 CAVEATS
+
+This module will function just fine with the default Math::BigInt, but it will
+be unusably slow.  If Math::BigInt::FastCalc is available, it will be just
+somewhat slow (679 seconds to run the testsuite).  For reasonable performance,
+Math::BigInt::GMP (25 seconds) is strongly recommended.
 
 =head1 AUTHOR
 

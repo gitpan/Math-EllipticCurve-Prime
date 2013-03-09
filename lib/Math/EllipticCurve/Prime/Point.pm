@@ -4,11 +4,11 @@ use warnings;
 
 package Math::EllipticCurve::Prime::Point;
 {
-  $Math::EllipticCurve::Prime::Point::VERSION = '0.002';
+  $Math::EllipticCurve::Prime::Point::VERSION = '0.003';
 }
 # ABSTRACT: points for elliptic curve operations over prime fields
 
-use Math::BigInt 1.78 try => 'GMP';
+use Math::BigInt 1.78 try => 'GMP,FastCalc';
 use List::Util;
 
 
@@ -244,7 +244,7 @@ Math::EllipticCurve::Prime::Point - points for elliptic curve operations over pr
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
